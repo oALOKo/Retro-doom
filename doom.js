@@ -20,7 +20,7 @@ class MainPlayer {
 }
 
 
-
+///with this I can make enemy that can run in any direction and one which moves left or right with var speed
 ///setting up enemy Class
 class enemy {
     constructor(health, speed, position, imgHeight, imgWidth) {
@@ -72,10 +72,10 @@ function animate() {
         enemyArray[i].positionChanging()
         enemyArray[i].drawSprite()
     }
-
+    /// change the spawner so it uses set interval with random interval
     ///spawner
     if (307 % (1 + Math.floor(Math.random() * 307)) === 0) {
-        enemyArray.push(new enemy(100, 10, { x: 100 * (Math.floor(Math.random() * (Math.floor(window.innerWidth / 100)))), y: 100 * (Math.floor(Math.random() * (Math.floor(window.innerHeight / 100)))) }, 100, 100))
+        enemyArray.push(new enemy(100, 2, { x: 100 * (Math.floor(Math.random() * (Math.floor(window.innerWidth / 100)))), y: 100 * (Math.floor(Math.random() * (Math.floor(window.innerHeight / 100)))) }, 100, 100))
     }
 
     requestAnimationFrame(animate);
@@ -91,7 +91,7 @@ function update() { }
 
 
 ///shooting mechanics
-
+///changing the timeout duration can give different rate of fire,which will be used to make revolver,shotgun and assault rifle
 
 function shoot(event) {
     let info = event.target;
@@ -117,7 +117,7 @@ window.addEventListener('click', shoot );
 
 
 
-///drawing something
+///drawing background
 
 function draw() {
     c.fillStyle = 'black'
